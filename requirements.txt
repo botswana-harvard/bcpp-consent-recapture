@@ -1,0 +1,8 @@
+git+https://github.com/erikvw/django-crypto-fields.git@0.1.12#egg=django_crypto_fields
+git+https://github.com/erikvw/django-revision.git@0.1.13#egg=django_revision
+git+https://github.com/botswana-harvard/edc-base.git@bcpp-apps#egg=edc_base
+git+https://github.com/botswana-harvard/edc-constants.git@0.2.6#egg=edc_constants
+git+https://github.com/botswana-harvard/edc-consent.git@0.2.7#egg=edc_consent
+git+https://github.com/botswana-harvard/edc-device.git@0.2.4#egg=edc_device
+git+https://github.com/botswana-harvard/edc-protocol.git@0.1.4#egg=edc_protocol
+git+https://github.com/botswana-harvard/edc-identifier.git@0.2.8#egg=edc_identifier
