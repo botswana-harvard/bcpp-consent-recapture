@@ -29,7 +29,7 @@ class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
         SubjectType('subject', 'Anonymous Research Subject',
                     Cap(model_name='bcpp_subject.anonymousconsent', max_subjects=9999)),
     ]
-    study_open_datetime = datetime(2013, 10, 18, 0, 0, 0)
+    study_open_datetime = datetime(2013, 10, 18, 0, 0, 0, tzinfo=gettz('UTC'))
     study_close_datetime = datetime(2018, 12, 1, 0, 0, 0, tzinfo=gettz('UTC'))
 
 
