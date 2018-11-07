@@ -12,7 +12,7 @@ app_config = django_apps.get_app_config('edc_protocol')
 tzinfo = gettz('Africa/Gaborone')
 
 v1 = Consent(
-    'bcpp_subject.subjectconsent',
+    'bcpp_consent_recapture.subjectconsent',
     version='1',
     start=arrow.get(
         datetime(2013, 10, 18, 0, 0, 0), tzinfo=tzinfo).to('UTC').datetime,
@@ -24,7 +24,7 @@ v1 = Consent(
     gender=[MALE, FEMALE])
 
 v2 = Consent(
-    'bcpp_subject.subjectconsent',
+    'bcpp_consent_recapture.subjectconsent',
     version='2',
     # updates_versions=['1'],
     start=arrow.get(
@@ -37,7 +37,7 @@ v2 = Consent(
     gender=[MALE, FEMALE])
 
 v3 = Consent(
-    'bcpp_subject.subjectconsent',
+    'bcpp_consent_recapture.subjectconsent',
     version='3',
     # updates_versions=['2'],
     start=arrow.get(
@@ -50,7 +50,7 @@ v3 = Consent(
     gender=[MALE, FEMALE])
 
 v4 = Consent(
-    'bcpp_subject.subjectconsent',
+    'bcpp_consent_recapture.subjectconsent',
     version='4',
     # updates_versions=['3'],
     start=arrow.get(
@@ -63,7 +63,7 @@ v4 = Consent(
     gender=[MALE, FEMALE])
 
 v5 = Consent(
-    'bcpp_subject.subjectconsent',
+    'bcpp_consent_recapture.subjectconsent',
     version='5',
     # updates_versions=['4'],
     start=arrow.get(

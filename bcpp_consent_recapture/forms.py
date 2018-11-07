@@ -9,6 +9,8 @@ from .models import SubjectConsent
 
 tz = pytz.timezone(settings.TIME_ZONE)
 
+subject_identifier = '066\-[0-9\-]+'
+
 
 class ConsentModelFormMixin(forms.ModelForm):
 

@@ -68,9 +68,7 @@ class SubjectConsent(
     consent = ConsentManager()
 
     def __str__(self):
-        return '{0} V{2}'.format(
-            self.subject_identifier,
-            self.version)
+        return f'{self.subject_identifier}, {self.version}'
 
     def save(self, *args, **kwargs):
 

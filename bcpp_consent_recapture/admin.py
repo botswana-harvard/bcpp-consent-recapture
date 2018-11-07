@@ -68,5 +68,12 @@ class SubjectConsentAdmin(ModelAdminConsentMixin, ModelAdminRevisionMixin,
     }
 
     def get_readonly_fields(self, request, obj=None):
-        return (super().get_readonly_fields(request, obj=obj)
-                + audit_fields)
+        super(ModelAdminConsentMixin, self).get_readonly_fields(request, obj)
+        if obj:
+            return (
+                'subject_identifier_as_pk',
+                'study_site',
+                'consent_datetime',) + self.readonly_fields + audit_fields
+        else:
+            return (('subject_identifier_as_pk',)
+                    + self.readonly_fields + audit_fields)
