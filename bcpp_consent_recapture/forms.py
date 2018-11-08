@@ -1,5 +1,5 @@
 import pytz
-
+import re
 from django import forms
 from django.conf import settings
 from edc_constants.constants import NOT_APPLICABLE, YES, NO
@@ -9,7 +9,7 @@ from .models import SubjectConsent
 
 tz = pytz.timezone(settings.TIME_ZONE)
 
-subject_identifier = '066\-[0-9\-]+'
+subject_identifier = '066\-[0-9]{8}\-[0-9{1}]$'
 
 
 class ConsentModelFormMixin(forms.ModelForm):
@@ -22,6 +22,7 @@ class ConsentModelFormMixin(forms.ModelForm):
         cleaned_data = super().clean()
         self.clean_citizen_is_citizen()
         self.clean_citizen_is_not_citizen()
+        self.validate_subject_identifier()
         return cleaned_data
 
     def validate_max_age(self):
@@ -82,6 +83,12 @@ class ConsentModelFormMixin(forms.ModelForm):
             if not (self.cleaned_data.get("marriage_certificate") in [YES, NO]):
                 raise forms.ValidationError({
                     'marriage_certificate': 'This field is required.'})
+
+    def validate_subject_identifier(self):
+        pattern = re.compile(subject_identifier)
+        if not pattern.match(self.cleaned_data.get("subject_identifier")):
+            raise forms.ValidationError({
+                'subject_identifier': 'Invalid subject identifier length'})
 
 
 class SubjectConsentForm(ConsentModelFormMixin, forms.ModelForm):
