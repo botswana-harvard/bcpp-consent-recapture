@@ -27,6 +27,8 @@ SECRET_KEY = 'xb=&=^=tiiwru&rxf3afa47tumgp9n8qrzw)4&1!w(hs7h(=s1'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+ETC_DIR = '/etc'
+MYSQL_CONF = 'mysql.conf'
 
 
 # Application definition
@@ -83,11 +85,20 @@ WSGI_APPLICATION = 'bcpp_consent_recapture.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': os.path.join(ETC_DIR, APP_NAME, MYSQL_CONF),
+        },
+    },
 }
 
 KEY_PATH = '/etc/bcpp/keys'
