@@ -1,14 +1,14 @@
 from django.contrib import admin
 from django_revision.modeladmin_mixin import ModelAdminRevisionMixin
+from edc_consent.modeladmin_mixins import ModelAdminConsentMixin
 
 from edc_base.modeladmin_mixins import (
     ModelAdminInstitutionMixin, audit_fieldset_tuple, audit_fields,
     ModelAdminNextUrlRedirectMixin)
-from edc_consent.modeladmin_mixins import ModelAdminConsentMixin
 
-from .forms import SubjectConsentForm
-from .models import SubjectConsent
-from .admin_site import bcpp_consent_recapture_admin
+from ..admin_site import bcpp_consent_recapture_admin
+from ..forms import SubjectConsentForm
+from ..models import SubjectConsent
 
 
 @admin.register(SubjectConsent, site=bcpp_consent_recapture_admin)

@@ -1,0 +1,2 @@
+from .clinic_subject_consent_form import ClinicSubjectConsentForm
+from .subject_consent_form import SubjectConsentForm

@@ -1,9 +1,9 @@
 from datetime import datetime
+
 from dateutil.tz import gettz
 from django.apps import AppConfig as DjangoAppConfig
-
-from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfigs
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
+from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfigs
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig, SubjectType, Cap
 
 
@@ -28,7 +28,7 @@ class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
                     Cap(model_name='bcpp_consent_recapture.subjectconsent', max_subjects=99999)),
     ]
     study_open_datetime = datetime(2013, 10, 18, 0, 0, 0, tzinfo=gettz('UTC'))
-    study_close_datetime = datetime(2018, 12, 1, 0, 0, 0, tzinfo=gettz('UTC'))
+    study_close_datetime = datetime(2019, 12, 1, 0, 0, 0, tzinfo=gettz('UTC'))
 
 
 class EdcIdentifierAppConfig(BaseEdcIdentifierAppConfigs):

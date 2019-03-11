@@ -1,13 +1,6 @@
-import pytz
 import re
 from django import forms
-from django.conf import settings
 from edc_constants.constants import NOT_APPLICABLE, YES, NO
-
-
-from .models import SubjectConsent
-
-tz = pytz.timezone(settings.TIME_ZONE)
 
 subject_identifier = '066\-[0-9]+'
 
@@ -89,12 +82,3 @@ class ConsentModelFormMixin(forms.ModelForm):
         if not pattern.match(self.cleaned_data.get("subject_identifier")):
             raise forms.ValidationError({
                 'subject_identifier': 'Invalid subject identifier length'})
-
-
-class SubjectConsentForm(ConsentModelFormMixin, forms.ModelForm):
-
-    form_validator_cls = None
-
-    class Meta:
-        model = SubjectConsent
-        fields = '__all__'

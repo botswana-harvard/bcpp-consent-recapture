@@ -1,0 +1,2 @@
+from .clinic_subject_consent_admin import ClinicSubjectConsentAdmin
+from .subject_consent_admin import SubjectConsentAdmin
